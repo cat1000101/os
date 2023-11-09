@@ -1,7 +1,20 @@
+;#
+;#   boot loader for fat
+;#
+
+
+
 org 0x7c00
 bits 16
 
 %define ENDL 0x0D, 0x0A
+
+;#
+;#   fat headers
+;#
+
+
+
 
 puts:
     push si
@@ -29,6 +42,10 @@ main:
     xor ax,ax
     mov ds,ax
     mov es,ax
+    mov fs,ax
+    mov gs,ax
+    mov ss,ax
+
     
     ;setup stack
     mov ss,ax
