@@ -12,8 +12,33 @@ bits 16
 ;#
 ;#   fat headers
 ;#
-
-
+;# jump to main
+jmp main
+nop
+;#  name of the file system/disk
+db "tamir os"
+;# number of bytes per sector
+dw 512
+;# number of clusters
+db 1
+;# number of reserved clusters fat12
+dw 1
+;# number of fat copies
+db 2
+;# Number of root directory entries
+dw 224
+;# Total number of sectors in the filesystem
+dw 2880
+;# Media descriptor type 
+db f8
+;# Number of sectors per FAT
+dw 9
+;# Number of sectors per track
+dw 12
+;# Number of heads (2, for a double-sided diskette)
+dw 2
+;# Number of hidden sectors (0) Hidden sectors are sectors preceding the partition. /* BIOS Parameter Block ends here */
+dw 0
 
 
 puts:
